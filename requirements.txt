@@ -2,7 +2,5 @@ openai
 aiofiles
 streamlit
 requests
-os
-shutil
 pandas
 hmac
