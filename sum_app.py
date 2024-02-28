@@ -18,7 +18,7 @@ import pandas as pd
 
 print("hello")
 
-client = OpenAI()
+client = OpenAI(api_key='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')
 
 
 
