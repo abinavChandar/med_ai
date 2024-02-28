@@ -2,9 +2,6 @@ openai
 aiofiles
 streamlit
 requests
-zipfile
-json
-time
 os
 shutil
 pandas
