@@ -1,6 +1,6 @@
 openai
 aiofiles
-streamlit
+streamlit==0.75.0
 requests
 pandas
 hmac
