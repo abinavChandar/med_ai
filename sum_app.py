@@ -5,14 +5,10 @@ import json
 from time import sleep
 import os
 import urllib.request
-from fastapi import FastAPI, HTTPException
 from openai import OpenAI
 from contextlib import redirect_stdout
-from fastapi import FastAPI, Request, UploadFile, HTTPException, status
-from fastapi.responses import HTMLResponse
 import aiofiles
 import shutil
-from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 from io import StringIO
 import hmac
