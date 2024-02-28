@@ -1,0 +1,224 @@
+import streamlit as st
+import requests
+import zipfile 
+import json
+from time import sleep
+import os
+import urllib.request
+from fastapi import FastAPI, HTTPException
+from openai import OpenAI
+from contextlib import redirect_stdout
+from fastapi import FastAPI, Request, UploadFile, HTTPException, status
+from fastapi.responses import HTMLResponse
+import aiofiles
+import shutil
+from fastapi.middleware.cors import CORSMiddleware
+import pandas as pd
+from io import StringIO
+import hmac
+
+
+
+
+def check_password():
+    """Returns `True` if the user had the correct password."""
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # Don't store the password.
+        else:
+            st.session_state["password_correct"] = False
+
+    # Return True if the password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # Show input for password.
+    st.text_input(
+        "Password", type="password", on_change=password_entered, key="password"
+    )
+    if "password_correct" in st.session_state:
+        st.error("😕 Password incorrect")
+    return False
+
+
+if not check_password():
+    st.stop()  # Do not continue if check_password is not True.
+
+
+print("hello")
+
+client = OpenAI()
+
+
+
+def content1(transcript):
+
+    completion1 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "Provide a One Liner with Cheif Complaint:"},
+        {"role": "user", "content": transcript}
+        ]
+    )
+
+    content_with_padding_01 = "\u200B\n\n" + completion1.choices[0].message.content
+
+    return content_with_padding_01
+
+
+def content2(transcript):
+
+    completion2 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "Provide the History of Present Illness:"},
+        {"role": "user", "content": transcript}
+        ]
+    )
+
+    content_with_padding_02 = "\u200B\n\n" + completion2.choices[0].message.content
+
+    return content_with_padding_02
+
+def content3(transcript):
+
+    completion3 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "Provide the Key Elements of his symptoms:"},
+        {"role": "user", "content": transcript}
+        ]
+    )
+
+    content_with_padding_03 = "\u200B\n\n" + completion3.choices[0].message.content
+
+    return content_with_padding_03
+
+
+def content4(transcript):
+
+    completion4 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "Provide a Clinical Assesment of this:"},
+        {"role": "user", "content": transcript}
+        ]
+    )
+
+    content_with_padding_04 = "\u200B\n\n" + completion4.choices[0].message.content
+
+    return content_with_padding_04
+
+
+def content5(transcript):
+
+    completion5 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "Provide a Clinical Plan of this:"},
+        {"role": "user", "content": transcript}
+        ]
+    )
+
+    content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
+
+    return content_with_padding_05
+
+
+
+def save_files(transcription,summary):
+
+    with open('transcript.txt', 'w') as f:
+        f.write(transcription)
+        f.close()
+    with open('summary.txt', 'w') as f:
+        f.write(summary)
+        f.close()    
+    list_files = ['transcript.txt','summary.txt']
+    with zipfile.ZipFile('final.zip', 'w') as zipF:
+      for file in list_files:
+         zipF.write(file, compress_type=zipfile.ZIP_DEFLATED)
+      zipF.close()
+
+
+
+
+# title of web app
+
+
+st.markdown('# **Medical Asistant**')
+bar = st.progress(0)
+
+#st.sidebar.header('Input parameter')
+
+
+
+with st.sidebar.form(key='my_form'):
+    #episode_id = st.text_input('Insert Episode ID:')
+    #bbc965b98747439abf0fe5c1a5ddfe5c
+    #e9baa9118e654cd09baff7ac4b67228f
+    uploaded_file = st.file_uploader("Choose a file")
+    submit_button = st.form_submit_button(label='Submit')
+    
+
+
+
+if submit_button:
+
+    #audio_file = bytes_data
+    #audio_file = open(audio_file, "rb")
+    transcript = client.audio.transcriptions.create(
+    model="whisper-1", 
+    file=uploaded_file, 
+    response_format="text"
+    )
+
+
+    content_with_padding_01 = content1(transcript)
+    content_with_padding_02 = content2(transcript)
+    content_with_padding_03 = content3(transcript)
+    content_with_padding_04 = content4(transcript)
+    content_with_padding_05 = content5(transcript)
+    
+    # step 3 - transcription and summary
+    
+    transcription = transcript
+    
+    summary = content_with_padding_01 + content_with_padding_02 + content_with_padding_03 + content_with_padding_04 + content_with_padding_05
+    
+
+    #bar.progress(100)
+    st.header('Transcription')
+    st.success(transcription)
+    st.header('Clinical Note')
+    st.success(summary)
+    save_files(transcription,summary)
+
+    with open("final.zip", "rb") as zip_download:
+        btn = st.download_button(
+            label="Download",
+            data=zip_download,
+            file_name="final.zip",
+            mime="application/zip"
+        )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
