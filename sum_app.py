@@ -117,7 +117,7 @@ def save_files(transcription,summary):
 # title of web app
 
 
-st.markdown('# **Medical Asistant**')
+st.markdown('# **Medical Assistant**')
 bar = st.progress(0)
 
 #st.sidebar.header('Input parameter')
