@@ -27,8 +27,8 @@ def content1(transcript):
     completion1 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "You are a admitting internal medicine physician at a hospital. Please document using appropriate medical terminology and translate colloquial conversation into a format aprrporiate for formal medical documentation, including use of medical jargon, if needed. "},
-        {"role": "user", "content": "Provide a concise one liner including key elements of patient's past medical history and ending with their chief clinical complaint and the duration of the the chief complaint:" + transcript}
+        {"role": "system", "content": "Provide a concise one liner including key elements of patient's past medical history and ending with their chief clinical complaint and the duration of the the chief complaint:"},
+        {"role": "user", "content": transcript}
         ]
     )
 
@@ -42,8 +42,8 @@ def content2(transcript):
     completion2 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "You are a admitting internal medicine physician at a hospital. Please document using appropriate medical terminology and translate colloquial conversation into a format aprrporiate for formal medical documentation, including use of medical jargon, if needed. "},
-        {"role": "user", "content": "Provide the History of Present Illness, including how and when patient initially started to experience signs and symptoms, what prompted them to present to the hospital, as well as what diagnostics and initial treatments provided by EMS or the emergency department, if applicable. End with a report of how the patient's signs and symptoms are currently." + transcript}
+        {"role": "system", "content": "Provide the History of Present Illness, including how and when patient initially started to experience signs and symptoms, what prompted them to present to the hospital, as well as what diagnostics and initial treatments provided by EMS or the emergency department, if applicable. End with a report of how the patient's signs and symptoms are currently. "},
+        {"role": "user", "content":  transcript}
         ]
     )
 
@@ -56,8 +56,8 @@ def content3(transcript):
     completion3 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "You are a admitting internal medicine physician at a hospital. Please document using appropriate medical terminology and translate colloquial conversation into a format aprrporiate for formal medical documentation, including use of medical jargon, if needed. "},
-        {"role": "user", "content": "Provide a short summmary of the key elements of the patients past medical history and history of present illness that you think would be the most helpful in generating differential clinical diagnoses. This list should be no longer than 10 items.:" + transcript}
+        {"role": "system", "content": "Provide a short summmary of the key elements of the patients past medical history and history of present illness that you think would be the most helpful in generating differential clinical diagnoses. This list should be no longer than 10 items.:"},
+        {"role": "user", "content": transcript}
         ]
     )
 
@@ -71,8 +71,8 @@ def content4(transcript):
     completion4 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "You are a admitting internal medicine physician at a hospital. Please document using appropriate medical terminology and translate colloquial conversation into a format aprrporiate for formal medical documentation, including use of medical jargon, if needed. "},
-        {"role": "user", "content": "Provide a clinical assessment based on the past medical history and history of present illness. This assessment should include a number of top clinical differentials in descending order of probability. It should also provide a preliminary assessment of the clinical prognosis for the patient and comment on their current clinical stability.:" + transcript}
+        {"role": "system", "content": "Provide a clinical assessment based on the past medical history and history of present illness. This assessment should include a number of top clinical differentials in descending order of probability. It should also provide a preliminary assessment of the clinical prognosis for the patient and comment on their current clinical stability.:"},
+        {"role": "user", "content": transcript}
         ]
     )
 
@@ -86,8 +86,8 @@ def content5(transcript):
     completion5 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "You are a admitting internal medicine physician at a hospital. Please document using appropriate medical terminology and translate colloquial conversation into a format aprrporiate for formal medical documentation, including use of medical jargon, if needed. "},
-        {"role": "user", "content": "Provide a Clinical Plan according to the clinical assessment above. The plan should be organized by clinical problem, in descending order of clinical significance and each problem's clincial plan should include several elements: a summary of the problem based on key elements of the history, consultant services that need to be contacted, specific diagnostics tests, imaging, and cultures that need to be ordered, and finally specific treatments, including surgical procedures, medications and calculate the specific dosages typically indicated for the condition. IF the dosaage is non-standard, please provide a weight-based dosage recommendation according to clinical and pharmacological guidelines." + transcript}
+        {"role": "system", "content": "Provide a Clinical Plan according to the clinical assessment above. The plan should be organized by clinical problem, in descending order of clinical significance and each problem's clincial plan should include several elements: a summary of the problem based on key elements of the history, consultant services that need to be contacted, specific diagnostics tests, imaging, and cultures that need to be ordered, and finally specific treatments, including surgical procedures, medications and calculate the specific dosages typically indicated for the condition. IF the dosaage is non-standard, please provide a weight-based dosage recommendation according to clinical and pharmacological guidelines."},
+        {"role": "user", "content":  transcript}
         ]
     )
 
