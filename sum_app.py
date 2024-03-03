@@ -141,7 +141,7 @@ def save_files(transcription,summary):
 # title of web app
 
 
-st.markdown('# **SmartEHR MediNoti**')
+st.markdown('# **SmartEHR SEHRA MediNoti**')
 bar = st.progress(0)
 
 #st.sidebar.header('Input parameter')
