@@ -241,6 +241,9 @@ with tab2:
     if st.button("Revise", type="primary"):
 
         content_with_padding_06 = revise(summary_txt, txt)
+        rev = open("revisions.txt", "w")
+        rev.write(txt)
+        rev.close()
 
         st.header('Revised Note')
         st.success(content_with_padding_06)
