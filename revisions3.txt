@@ -1,0 +1,1 @@
+Provide a short summary of the key elements of the patients past medical history and history of present illness that you think would be the most helpful in generating differential clinical diagnoses. This list should be no longer than 10 items.:
