@@ -24,10 +24,13 @@ client = OpenAI(api_key='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')
 
 def content1(transcript):
 
+    revision = open("revisions.txt", "r")
+    revision_1 = revision.read()
+
     completion1 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "Provide a concise one liner including key elements of patient's past medical history and ending with their chief clinical complaint and the duration of the the chief complaint:"},
+        {"role": "system", "content": revision_1},
         {"role": "user", "content": transcript}
         ]
 
@@ -40,10 +43,13 @@ def content1(transcript):
 
 def content2(transcript):
 
+    revision = open("revisions2.txt", "r")
+    revision_1 = revision.read()
+
     completion2 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "Provide the History of Present Illness, including how and when patient initially started to experience signs and symptoms, what prompted them to present to the hospital, as well as what diagnostics and initial treatments provided by EMS or the emergency department, if applicable. End with a report of how the patient's signs and symptoms are currently. "},
+        {"role": "system", "content": revision_1},
         {"role": "user", "content":  transcript}
         ]
     )
@@ -54,10 +60,13 @@ def content2(transcript):
 
 def content3(transcript):
 
+    revision = open("revisions3.txt", "r")
+    revision_1 = revision.read()   
+
     completion3 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "Provide a short summmary of the key elements of the patients past medical history and history of present illness that you think would be the most helpful in generating differential clinical diagnoses. This list should be no longer than 10 items.:"},
+        {"role": "system", "content": revision_1},
         {"role": "user", "content": transcript}
         ]
     )
@@ -69,10 +78,13 @@ def content3(transcript):
 
 def content4(transcript):
 
+    revision = open("revisions4.txt", "r")
+    revision_1 = revision.read()   
+
     completion4 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "Provide a clinical assessment based on the past medical history and history of present illness. This assessment should include a number of top clinical differentials in descending order of probability. It should also provide a preliminary assessment of the clinical prognosis for the patient and comment on their current clinical stability.:"},
+        {"role": "system", "content": revision_1},
         {"role": "user", "content": transcript}
         ]
     )
@@ -84,10 +96,13 @@ def content4(transcript):
 
 def content5(transcript):
 
+    revision = open("revisions5.txt", "r")
+    revision_1 = revision.read()   
+
     completion5 = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-        {"role": "system", "content": "Provide a Clinical Plan according to the clinical assessment above. The plan should be organized by clinical problem, in descending order of clinical significance and each problem's clincial plan should include several elements: a summary of the problem based on key elements of the history, consultant services that need to be contacted, specific diagnostics tests, imaging, and cultures that need to be ordered, and finally specific treatments, including surgical procedures, medications and calculate the specific dosages typically indicated for the condition. IF the dosaage is non-standard, please provide a weight-based dosage recommendation according to clinical and pharmacological guidelines."},
+        {"role": "system", "content": revision_1},
         {"role": "user", "content":  transcript}
         ]
     )
@@ -146,7 +161,7 @@ bar = st.progress(0)
 
 #st.sidebar.header('Input parameter')
 
-tab1, tab2 = st.tabs(["Original", "Revisions"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Original", "Complaint", "History", "Emergency", "Assessment", "Plan"])
 
 
 with tab1:
@@ -173,12 +188,23 @@ with tab1:
         response_format="text"
         )
 
+        # temp_dir = tempfile.mkdtemp()
+        # path = os.path.join(temp_dir, uploaded_file.name)
+        # with open(path, "wb") as f:
+        #         f.write(uploaded_file.getvalue())
+
 
         content_with_padding_01 = content1(transcript)
         content_with_padding_02 = content2(transcript)
-        content_with_padding_03 = content3(transcript)
-        content_with_padding_04 = content4(transcript)
-        content_with_padding_05 = content5(transcript)
+
+        content_1_2 = content_with_padding_01 + content_with_padding_02
+
+        content_with_padding_03 = content3(content_1_2)
+
+        content_1_2_3 = content_1_2 + content_with_padding_03
+        content_with_padding_04 = content4(content_1_2_3)
+        content_1_2_3_4 = content_1_2_3 + content_with_padding_04
+        content_with_padding_05 = content5(content_1_2_3_4)
         
         # step 3 - transcription and summary
         
@@ -191,11 +217,24 @@ with tab1:
         content5 = content_with_padding_05
 
         summary = summary(content1, content2, content3, content4, content5)
-        f = open("demofile3.txt", "w")
-        f.write(summary)
-        f.close()
-        
-
+        f_1 = open("demofile1.txt", "w")
+        f_2 = open("demofile2.txt", "w")
+        f_3 = open("demofile3.txt", "w")
+        f_4 = open("demofile4.txt", "w")
+        f_5 = open("demofile5.txt", "w")
+        trans = open("trans.txt", "w")
+        trans.write(transcription)
+        trans.close()
+        f_1.write(content1)
+        f_1.close()
+        f_2.write(content2)
+        f_2.close()
+        f_3.write(content3)
+        f_3.close()        
+        f_4.write(content4)
+        f_4.close()
+        f_5.write(content5)
+        f_5.close()
         #bar.progress(100)
 
             
@@ -224,34 +263,324 @@ with tab1:
 
 with tab2:
 
-    txt = st.text_area(
-    "Add Revisions",
-    "",
-    )
 
     
 
 
 
-    f = open("demofile3.txt", "r")
+    f_1 = open("demofile1.txt", "r")
+    f_2 = open("demofile2.txt", "r")
+    f_3 = open("demofile3.txt", "r")
+    f_4 = open("demofile4.txt", "r")
+    f_5 = open("demofile5.txt", "r")
+    trans = open("trans.txt", "r")
  
-    summary_txt = f.read()
+    content_1 = f_1.read()
+    content_2 = f_2.read()
+    content_3 = f_3.read()
+    content_4 = f_4.read()
+    content_5 = f_5.read()
+    transcription_1 = trans.read()
     #txt = "Please Change the patient name to Abinav"
 
-    if st.button("Revise", type="primary"):
+    summary = content_1 + content_2 + content_3 + content_4 + content_5
 
-        content_with_padding_06 = revise(summary_txt, txt)
+
+
+
+    st.header('One Liner with Chief Complaint:')
+    st.success(content_1)
+    rev = open("revisions.txt", "r")
+    placeholder = rev.read()
+
+    txt = st.text_area(
+    "Add Revisions for One Liner with Chief Complaint",
+    placeholder,
+    )
+
+
+    if st.button("Revise Chief Complaint Note", type="primary"):
+
+        content_with_padding_01 = revise(transcription_1, txt)
         rev = open("revisions.txt", "w")
         rev.write(txt)
         rev.close()
 
         st.header('Revised Note')
-        st.success(content_with_padding_06)
+        st.success(content_with_padding_01)
 
 
-    st.success(summary)
+
+
+
+with tab3:
+
 
     
+
+
+
+    f_1 = open("demofile1.txt", "r")
+    f_2 = open("demofile2.txt", "r")
+    f_3 = open("demofile3.txt", "r")
+    f_4 = open("demofile4.txt", "r")
+    f_5 = open("demofile5.txt", "r")
+    trans = open("trans.txt", "r")
+ 
+    content_1 = f_1.read()
+    content_2 = f_2.read()
+    content_3 = f_3.read()
+    content_4 = f_4.read()
+    content_5 = f_5.read()
+    transcription_1 = trans.read()
+    summary = content_1 + content_2 + content_3 + content_4 + content_5
+    #txt = "Please Change the patient name to Abinav"
+
+
+
+
+    st.header('History of Present Illness (HPI)')
+    st.success(content_2)
+    rev = open("revisions2.txt", "r")
+    placeholder = rev.read()
+
+    txt = st.text_area(
+    "Add Revisions for HPI",
+    placeholder,
+    )
+
+
+    if st.button("Revise HPI Note", type="primary"):
+
+        content_with_padding_01 = revise(transcription_1, txt)
+        rev = open("revisions2.txt", "w")
+        rev.write(txt)
+        rev.close()
+
+        st.header('Revised Note')
+        st.success(content_with_padding_01)
+
+
+
+
+with tab4:
+
+
+
+    f_1 = open("demofile1.txt", "r")
+    f_2 = open("demofile2.txt", "r")
+    f_3 = open("demofile3.txt", "r")
+    f_4 = open("demofile4.txt", "r")
+    f_5 = open("demofile5.txt", "r")
+    trans = open("trans.txt", "r")
+ 
+    content_1 = f_1.read()
+    content_2 = f_2.read()
+    content_3 = f_3.read()
+    content_4 = f_4.read()
+    content_5 = f_5.read()
+    transcription_1 = trans.read()
+    summary = content_1 + content_2 
+    #txt = "Please Change the patient name to Abinav"
+
+
+
+
+    st.header('Emergency Department Course (ED Course)')
+    st.success(content_3)
+    rev = open("revisions3.txt", "r")
+    placeholder = rev.read()
+
+    txt = st.text_area(
+    "Add Revisions for ED",
+    placeholder,
+    )
+
+
+    if st.button("Revise ED Note", type="primary"):
+
+        content_with_padding_01 = revise(summary, txt)
+        rev = open("revisions3.txt", "w")
+        rev.write(txt)
+        rev.close()
+
+        st.header('Revised Note')
+        st.success(content_with_padding_01)
+
+
+with tab5:
+
+
+
+    f_1 = open("demofile1.txt", "r")
+    f_2 = open("demofile2.txt", "r")
+    f_3 = open("demofile3.txt", "r")
+    f_4 = open("demofile4.txt", "r")
+    f_5 = open("demofile5.txt", "r")
+    trans = open("trans.txt", "r")
+ 
+    content_1 = f_1.read()
+    content_2 = f_2.read()
+    content_3 = f_3.read()
+    content_4 = f_4.read()
+    content_5 = f_5.read()
+    transcription_1 = trans.read()
+    summary = content_1 + content_2 + content_3 
+    #txt = "Please Change the patient name to Abinav"
+
+
+
+
+    st.header('Clinical Assessment:')
+    st.success(content_4)
+    rev = open("revisions4.txt", "r")
+    placeholder = rev.read()
+
+    txt = st.text_area(
+    "Add Revisions for Assessment",
+    placeholder,
+    )
+
+
+    if st.button("Revise Assessment Note", type="primary"):
+
+        content_with_padding_01 = revise(summary, txt)
+        rev = open("revisions4.txt", "w")
+        rev.write(txt)
+        rev.close()
+
+        st.header('Revised Note')
+        st.success(content_with_padding_01)
+
+
+with tab6:
+
+
+
+    f_1 = open("demofile1.txt", "r")
+    f_2 = open("demofile2.txt", "r")
+    f_3 = open("demofile3.txt", "r")
+    f_4 = open("demofile4.txt", "r")
+    f_5 = open("demofile5.txt", "r")
+    trans = open("trans.txt", "r")
+ 
+    content_1 = f_1.read()
+    content_2 = f_2.read()
+    content_3 = f_3.read()
+    content_4 = f_4.read()
+    content_5 = f_5.read()
+    transcription_1 = trans.read()
+    summary = content_1 + content_2 + content_3 + content_4 
+    #txt = "Please Change the patient name to Abinav"
+
+
+
+
+    st.header('Clinical Plan:')
+    st.success(content_5)
+    rev = open("revisions5.txt", "r")
+    placeholder = rev.read()
+
+    txt = st.text_area(
+    "Add Revisions for Plan",
+    placeholder,
+    )
+
+
+    if st.button("Revise Plan Note", type="primary"):
+
+        content_with_padding_01 = revise(summary, txt)
+        rev = open("revisions5.txt", "w")
+        rev.write(txt)
+        rev.close()
+
+        st.header('Revised Note')
+        st.success(content_with_padding_01)
+
+
+
+
+
+
+    # st.header('History of Present Illness (HPI)')
+    # st.success(content_2)
+
+    # txt3 = st.text_area(
+    # "Add Revisions",
+    # "",
+    # )
+
+
+    # if st.button("Revise", type="primary"):
+
+    #     content_with_padding_02 = revise(content_2, txt3)
+    #     rev = open("revisions.txt", "w")
+    #     rev.write(txt3)
+    #     rev.close()
+
+    #     st.header('Revised Note')
+    #     st.success(content_with_padding_02)
+
+    # st.header('Emergency Department Course (ED Course)')
+    # st.success(content_3)
+
+
+    # txt3 = st.text_area(
+    # "Add Revisions",
+    # "",
+    # )
+
+    # if st.button("Revise", type="primary"):
+
+    #     content_with_padding_03 = revise(content_3, txt3)
+    #     rev = open("revisions.txt", "w")
+    #     rev.write(txt3)
+    #     rev.close()
+
+    #     st.header('Revised Note')
+    #     st.success(content_with_padding_03)
+
+    # st.header('Clinical Assessment:')
+    # st.success(content_4)
+
+    # txt4 = st.text_area(
+    # "Add Revisions",
+    # "",
+    # )
+
+
+
+    # if st.button("Revise", type="primary"):
+
+    #     content_with_padding_04 = revise(content_4, txt4)
+    #     rev = open("revisions.txt", "w")
+    #     rev.write(txt4)
+    #     rev.close()
+
+    #     st.header('Revised Note')
+    #     st.success(content_with_padding_04)
+
+
+
+    # st.header('Clinical Plan:')
+    # st.success(content_5)
+
+
+    # txt5 = st.text_area(
+    # "Add Revisions",
+    # "",
+    # )
+
+
+    # if st.button("Revise", type="primary"):
+
+    #     content_with_padding_05 = revise(content_5, txt5)
+    #     rev = open("revisions.txt", "w")
+    #     rev.write(txt5)
+    #     rev.close()
+
+    #     st.header('Revised Note')
+    #     st.success(content_with_padding_05)    
 
 
 
