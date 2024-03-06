@@ -1,1 +1,182 @@
 Provide a Clinical Plan according to the clinical assessment above. The plan should be organized by clinical problem, in descending order of clinical significance and each problem's clincial plan should include several elements: a summary of the problem based on key elements of the history, consultant services that need to be contacted, specific diagnostics tests, imaging, and cultures that need to be ordered, and finally specific treatments, including surgical procedures, medications and calculate the specific dosages typically indicated for the condition. IF the dosaage is non-standard, please provide a weight-based dosage recommendation according to clinical and pharmacological guidelines.
+
+
+Example 1: 
+
+Hi Mr. Smith. My name is Dr. Zhang and I'll be taking care of you today. What brings you in? Well doc, I've been feeling quite a lot of belly pain recently and I feel like my belly's getting bigger and I feel like there's just got a lot of fluid in it and even when I walk around it you know I can feel it moving in there and really it's making it a little bit hard to move around for me and it's making me a little bit hard to breathe. Oh I'm sorry to hear that. When did this first start? Well it really started quite a while back now. I mean I feel like I've you know had a drinking problem for years now and typically I you know I drink at least a couple of shots of whiskey per day. Sometimes I you know I chase it down maybe with a couple glasses of wine as well. I know it's bad for me but it's really been going on for quite some time and I feel like recently I went to my primary care doctor and they said that me you know I may have a liver problem and they recommended a slew of tests and I didn't know yet how important it was and I I guess I didn't really see it as that important to get it so I you know I didn't really get the labs and the imaging that they recommended and I feel like now it's all catching up to me. Well it's okay you don't have to blame yourself. I just want to hear a little bit more about this pain that you have. Well yeah so I don't know recently you know I it was just that I feel like my stomach has been like I said getting bigger over the past few months maybe even up you know up for the past year and it feels like I get I you know when I eat I get full sooner and it's you know just been harder for me to get around and I get more winded more easily but really over the past week I started to feel sort of belly pain and it I don't know like you know it just feels like a dull pain and whenever I press on my belly it gets it definitely makes it worse and I would say it's probably worse and right over here on the right side near the top of you know near near the top of my stomach okay well I'm sorry to hear that what other symptoms have you had have you had any nausea or vomiting well yeah sometimes I have a little bit of nausea I haven't really had any significant vomiting sometimes I have a little retching but I've never really vomited much up so so you definitely never had any bloody vomiting right no I haven't and have you had any diarrhea or constipation well you know now that you mentioned it I think in the past couple days I do I you know I did have a couple episodes of loose stool sort of watery and you know I didn't feel too good afterwards either and did this you know did those stools have blood in them no not really no blood I didn't see anything so no blood in you know you didn't have any bloody vomiting or bloody stools yeah I guess so that's that's correct okay well that that's at least reassuring okay so tell me more about this liver issue that you've been having well yeah like I told you my primary care doctor has said in the past that because of the the way that I eat and I know I'm not really eating that well I you know I I don't really watch what I eat and I do I do have a sweet tooth so I tend to eat a lot of sugary things on the daily and you know I love potatoes bread and I know it's bad for me and really I do admit that I have a drinking problem and I do go to my meetings for it but you know it's been hard any with the with the stresses of my work and it's just hard to keep up with things yeah so I like I said I've been maybe drinking a couple shots of whiskey per day sometimes you know a couple wine glasses of wine on top of that that's okay well thanks for being honest with us well is it you know did you ever get any labs or imaging done for your liver like I said yeah my primary care doctor really recommended a couple things they noticed that something my maybe my liver numbers were up but I didn't really follow up on it and they recommended I think you know to get some some pictures taken of my liver and I didn't really go and get that either so but I now I feel like it's reached gotten to a point where I really need to get checked out so that's why I'm here and yeah I think you made a great decision by coming in today and I was wondering if you have any other sort of medical issues that I would need to know about yeah you know people have said that I have you know high cholesterol and I think I have I have diabetes as well though I you know I take metformin for it and I think I you know I miss a couple heat doses here and there but for the most part I take it pretty well and yeah I think I think that's about it and have you had any surgeries in the past well I had my appendix appendix out you know from I was a young man still and but that's over 20 years ago okay well thank you and I know you about your you know that you're drinking issues and thank you for telling me that by the way it must take a lot of courage to say and what about smoking do you smoke yeah you know I I used to smoke about maybe half a pack a day for for you know for a good good 20 30 years but now I don't and yeah and do you use any other you know herbal supplements any other substances at all that I you know that you would want me to know no no I don't really take any supplements I do take some vitamins from time to time but not regularly okay well thanks for that that's very and that's very helpful and what do you do for work mr. Smith oh I'm I'm right now I mean I'm software engineering and you know I've been doing it all my life and so you know office job and that kind of contributes to it I don't really move around I realize that and I don't really exercise that much I get home and I'm really tired and I just want to eat and go to sleep all right well thank you for telling me all that that's that's very helpful and one of my last questions is I was wondering if anyone in your family that you know of has any significant you know medical issues specifically any you know issues of the heart of the liver of the kidneys well you know my dad had a heart attack when he was 70 years old and my mom has diabetes I haven't heard any of them have any liver issues though I think my brother my older brother recently got diagnosed with some sort of liver issue but again I'm not exactly sure what it is I would I'd have to call him okay well sounds good thank you for your patience with us and I know you've been waiting for a while here in the emergency room I'm gonna send for a couple of tests including like you said a liver function test and we're probably gonna get some imaging of your belly just to see what's going on in there so that we can better help you okay is that fair yes thank you so much and again please you know help me address this belly pain that I have I think it's definitely getting gotten worse over the past week and I really like to figure out what's going on yes we absolutely will so I'll be back to see you shortly okay yep sounds good thank you
+
+History of Present Illness - Mr. Smith presented to the hospital with complaints of worsening abdominal pain and
+distension, along with difficulty breathing. He reported a history of chronic alcohol use
+and poor dietary habits, noting that his primary care physician had previously suggested
+he may have a liver issue due to elevated liver enzymes. He mentioned neglecting to
+follow up on recommended tests and imaging in the past.
+Upon further questioning, Mr. Smith described experiencing a gradual increase in
+abdominal size over the past few months, early satiety with meals, and recent onset of
+dull, localized pain on the right side of his abdomen. He denied any nausea, vomiting,
+bloody stools, or bloody vomit. He did report episodes of loose stools in the past couple
+of days.
+In addition to his history of chronic alcohol use, Mr. Smith admitted to a past smoking
+habit and a sedentary lifestyle due to his occupation as a software engineer. He also
+reported a history of high cholesterol, diabetes treated with metformin, and a family
+history of heart disease and diabetes.
+
+Key Elements - 
+
+Alcohol Use Disorder
+Unhealthy eating habits
+History of Hypercholesterolemia
+Diabetes
+Family history of cardiovascular and liver disease
+Abdominal pain and distension
+Early satiety with meals
+Recent onset of right-sided abdominal pain
+History of smoking and sedentary lifestyle.
+
+
+Clinical Assessment-
+
+Based on Mr. Smith's past medical history and the details of his current presentation, the
+top clinical differentials for his abdominal pain and distension are as follows:
+Alcoholic liver disease (most likely given history of alcohol use)
+Fatty liver disease (possible given dietary indiscretions)
+Ascites (as evident by abdominal distension and subjective feeling of fluid shifts)
+Pancreatitis (possible given epigastric pain)
+Gastritis or peptic ulcer disease (possible given epigastric pain)
+Gallbladder issues (possible given epigastric or RUQ pain)
+Given Mr. Smith's chronic alcohol abuse, unhealthy eating habits, and elevated liver
+enzymes, liver-related conditions such as alcoholic liver disease or fatty liver disease are
+high on the list of differentials. Ascites may also be a concern due to possible liver or
+heart-related issues. Pancreatitis is another important consideration due to his alcohol
+use. Gastritis, peptic ulcer disease, or gallbladder issues could also be contributing to his
+symptoms.
+
+Clinical Plan:
+
+Cirrhosis due to Chronic Alcohol Consumption:
+Summary: Mr. Smith&#39;s history of chronic alcohol consumption puts him at high
+risk for developing liver cirrhosis. Symptoms of increasing belly pain, distension,
+and fatigue along with a history of alcohol abuse are concerning for advanced
+liver disease.
+Consultant Services:
+- Gastroenterology/ Hepatology
+Diagnostics:
+- Liver function tests (AST, ALT, bilirubin, albumin, INR),
+- Abdominal ultrasound
+o Followed by paracentesis if pocket identified, send for ascitic fluid
+analysis (cell count with differential, protein, albumin, culture etc.)
+
+- CT Abdomen/Pelvis
+- MELD Score Calculation
+Treatments:
+- Alcohol cessation counseling and support
+- Referral to Alcoholics Anonymous or addiction specialist for alcohol
+cessation program
+- Nutritional counseling and dietary modifications
+- Low-sodium diet, high-protein diet
+- Consider upper endoscopy with EGD for variceal screening.
+- Consider large volume paracentesis to reduce abdominal fluid volume and
+distension
+- Consider referral to liver transplantation if MELD &gt;20
+Medications:
+- Diuretics: Lasix 40mg, Spironolactone 100mg (Titrate up as able while
+maintaining 2:5 ratio)
+- If Spontaneous Bacterial Peritonitis is confirmed, given Antibiotics
+(Ceftriaxone 2g q24h) and Albumin (1 g/kg on Day 1, 1.5g/kg on Day 3)
+- If variceal bleeding, give Ceftriaxone 2g q24h, start IV Pantoprazole 40mg.
+Transfuse for hemoglobin goal of &lt;7g/dL.
+- If undergoing large volume paracentesis with more than &gt;5L fluid
+removed, consider repleting albumin at 8g/L to prevent hemodynamic
+shifts due to fluid removal.
+- Lactulose for hepatic encephalopathy: 30-45 ml orally daily as needed to
+maintain 2-3 soft stools per day High Cholesterol
+- Consider vaccinations for hepatitis A and B if not immunized,
+
+
+Example 2:
+
+
+Hi Mr. Smith, my name is Dr. Zhang and I'll be taking care of you today. What brings you in? I've just been feeling a bit of chest pain. In the middle of my chest I feel this sort of pressure and it started about two hours ago and it's just been pretty constant since. Can you tell me a little bit more about this chest pain? What were you doing when it first started? Well I was gardening in my yard and I was pulling out some of the weeds and that's when it first started and I thought maybe I was just tiring myself out a little bit too much so I sat down and gave it five minutes rest and it didn't really get better so I thought maybe I should take an aspirin so that's what I did and that didn't really help either and so at that point my wife told me to come in to get checked out. I think that was a really good decision th
+at she made and I'm really glad you came in. Can you tell me a little bit more about your other medical history? Sure, well I do have a primary care doctor that I go to every year for annual health exams and I remember her telling me that I have high blood pressure, my blood sugar is a bit high although she said it's not quite in the range for diabetes yet and she also told me that I have high cholesterol and that's why I'm on atorvastatin which I take every day and I'm also on aspirin like I previously said though I took an extra dose this morning like I told you. Well thank you for that, that was very helpful information and can you tell me a bit more about this pain? As in I know it's centered around your chest, is there any other unique qualities to it that you would, how would you describe it? Well as I said earlier it feels like a bit of dull pressure sort of sitting at the middle of my chest and I do feel it sometimes shooting off to my left and right arms and even up to the jaw. It's nothing like I ever really experienced before and again it's sort of just I feel it squeezing my heart and I got worried and I thought that I should come in just in case that it's something serious. Well again I'm really glad you did come in to get evaluated and yeah so it sounds like you've, I'm just going to summarize what you told me, it sounds like about two hours ago at home when you were gardening you started experiencing this chest pain which you've never had before and it's mostly centered around your chest, it's sort of a dull pressure that's squeezing down on your heart and it sometimes shoots off to your left and your right arm and sometimes even up to the jaw. You've tried resting and that doesn't really make it better and you've also took an extra dose of your aspirin which didn't really relieve the pain either. Does that sound about right? Yeah I think you summed it up pretty well. Okay Mr. Smith no worries we're going to make you more comfortable here and we are going to get some tests going including an EKG which is to look at your heart rhythm and some blood tests to help us look at your heart as well as an ultrasound of your heart so someone will come in and basically help us look at the inside structures of your heart to see if we can better figure out what's going on okay and if the pain gets a lot worse please let us know and we're also going to give you some medications to help alleviate the pain so let us know if that makes you feel better okay it's going to be called nitroglycerin. Okay sure I will let you know so yeah please keep us updated and I'll be back to see you soon all right okay thank you doctor.
+
+Mr. Smith presented to the hospital with chest pain that started about two hours ago while he was gardening. The pain is described as a dull pressure in the middle of his chest, radiating to his left and right arms and up to his jaw. Rest and aspirin did not relieve the pain. Mr. Smith has a history of high blood pressure, high blood sugar, and high cholesterol for which he takes atorvastatin daily and was previously on aspirin.
+
+Upon arrival to the emergency department, Mr. Smith underwent an EKG to assess his heart rhythm, blood tests to evaluate cardiac enzymes, and an ultrasound of his heart to assess cardiac structure and function. He was also given nitroglycerin to help alleviate the chest pain.
+
+Mr. Smith's current condition is stable, with continued monitoring of his chest pain and cardiac status in progress. Further tests and evaluations will be conducted to determine the cause of his chest pain and appropriate management.
+
+
+Key Elements - 
+
+Hypertension
+Hypercholesterolemia
+Recent aspirin use
+Acute onset chest pressure
+Radiating chest pain to arms and jaw
+Chest pain started while gardening
+Dull pressure in the middle of the chest
+Atorvastatin daily use
+Previous aspirin use
+History of high blood sugar
+
+
+
+Clinical Assessment:
+
+Patient Mr. Smith is a 50-year-old man with a past medical history of hypertension,
+hypercholesterolemia, and pre-diabetes who is presenting with the primary complaint of
+chest pain and pressure for the past 2 hours with elevated troponins most concerning for
+non-ST elevation myocardial infarction. Other less likely diagnoses include new-onset
+heart failure, pulmonary embolism, aortic dissection, pneumonia etc.
+
+
+Clinical Plan:
+
+Source: Physician formulates a point-by-point plan that addresses active clinical problems.
+# Non-ST-Elevation Myocardial Infarction
+# Chest Pain
+50-year-old man with classic risk factors for coronary artery disease is presenting with classic
+chest pain and pressure (exacerbated with exercise and relieved with nitroglycerin, with radiation
+to arms and jaw) accompanied by elevations in troponins and non-specific ST-T changes
+concerning for non-ST elevation myocardial infarction.
+[Consults]
+-Cardiology: Appreciate continued recommendations regarding timing of coronary angiogram
+[Diagnostics]
+-Trend troponins to peak
+-Transthoracic echocardiogram
+-Obtain NTpro-BNP, Hemoglobin A1c, Lipid Panel, TSH, HIV
+[Treatment]
+-Aspirin 81mg daily
+-Atorvastatin 80mg daily
+-SL Nitroglycerin 0.4mg as needed for chest pain (hold for hypotension)
+-Heparin load and drip per ACS protocol: 5000u bolus followed by 16u/kg/hr. Adjust per PTT.
+-Awaiting cardiology recommendation on timing of coronary angiogram and possible
+intervention
+-Plan for initiation of beta blocker and angiotensin receptor blocker following coronary
+intervention
+
+
+Example 3 : {transcription}
+
+Clinical Plan:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

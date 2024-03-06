@@ -1,12 +1,14 @@
 ​
 
-1. High blood pressure
-2. High cholesterol
-3. High blood sugar
-4. On atorvastatin and aspirin
-5. New-onset chest pain
-6. Dull pressure in the middle of the chest
-7. Chest pain radiating to left arm, right arm, and jaw
-8. Chest pain started while gardening
-9. Attempted rest and took extra aspirin at home
-10. Chest pain unrelieved by rest and aspirin
+Key Elements:
+
+- Hypertension
+- Hyperlipidemia
+- High blood sugar
+- Acute onset chest pain
+- Dull pressure in central chest
+- Radiation of pain to left arm and jaw
+- History of atorvastatin use
+- Recent aspirin use
+- Chest pain started while gardening
+- Mild chest discomfort for two hours.

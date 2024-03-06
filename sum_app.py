@@ -18,7 +18,7 @@ import pandas as pd
 
 print("hello")
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='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')
 
 
 
@@ -295,13 +295,13 @@ with tab2:
 
     txt = st.text_area(
     "Add Revisions for One Liner with Chief Complaint",
-    placeholder,
+    placeholder,height=1000
     )
 
 
     if st.button("Revise Chief Complaint Note", type="primary"):
 
-        content_with_padding_01 = revise(content_1, txt)
+        content_with_padding_01 = revise(transcription_1, txt)
         rev = open("revisions.txt", "w")
         rev.write(txt)
         rev.close()
@@ -346,7 +346,7 @@ with tab3:
 
     txt = st.text_area(
     "Add Revisions for HPI",
-    placeholder,
+    placeholder,height=1000
     )
 
 
@@ -393,7 +393,7 @@ with tab4:
 
     txt = st.text_area(
     "Add Revisions for ED",
-    placeholder,
+    placeholder,height=1000
     )
 
 
@@ -438,7 +438,7 @@ with tab5:
 
     txt = st.text_area(
     "Add Revisions for Assessment",
-    placeholder,
+    placeholder,height=1000
     )
 
 
@@ -483,7 +483,7 @@ with tab6:
 
     txt = st.text_area(
     "Add Revisions for Plan",
-    placeholder,
+    placeholder,height=1000
     )
 
 

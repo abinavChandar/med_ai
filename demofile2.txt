@@ -1,7 +1,7 @@
 ​
 
-The patient, Mr. Smith, presented to the emergency department with complaints of chest pain that started approximately two hours ago while he was gardening. The chest pain was described as a dull pressure in the middle of his chest, radiating to his left and right arms as well as up to his jaw. He attempted rest and took an extra dose of aspirin at home, but the pain did not improve. 
+History of Present Illness: Mr. Smith presented to the hospital with chest pain that started about two hours ago while he was gardening. The pain is described as a dull pressure in the middle of his chest, radiating to his left and right arms and up to his jaw. Rest and aspirin did not relieve the pain. Mr. Smith has a history of high blood pressure, high blood sugar, and high cholesterol for which he takes atorvastatin daily and was previously on aspirin.
 
-Given Mr. Smith's history of high blood pressure, high cholesterol, and high blood sugar, as well as his presentation of chest pain radiating to his arms and jaw, the healthcare team suspected a cardiac event and initiated diagnostics. An EKG was performed to assess his heart rhythm, blood tests were done to evaluate his cardiac enzymes, and an ultrasound of the heart was planned to visualize the internal structures of the heart.
+Upon arrival to the emergency department, Mr. Smith underwent an EKG to assess his heart rhythm, blood tests to evaluate cardiac enzymes, and an ultrasound of his heart to assess cardiac structure and function. He was also given nitroglycerin to help alleviate the chest pain.
 
-To alleviate the pain, Mr. Smith was administered nitroglycerin. The healthcare team reassured him and ensured that he was closely monitored for any changes in his symptoms. Mr. Smith's signs and symptoms are currently being managed while awaiting further test results to determine the underlying cause of his chest pain.
+Mr. Smith's current condition is stable, with continued monitoring of his chest pain and cardiac status in progress. Further tests and evaluations will be conducted to determine the cause of his chest pain and appropriate management.
