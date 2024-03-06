@@ -301,7 +301,7 @@ with tab2:
 
     if st.button("Revise Chief Complaint Note", type="primary"):
 
-        content_with_padding_01 = revise(transcription_1, txt)
+        content_with_padding_01 = revise(content_1, txt)
         rev = open("revisions.txt", "w")
         rev.write(txt)
         rev.close()
