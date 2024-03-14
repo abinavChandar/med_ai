@@ -9,7 +9,7 @@ import json
 # Read constants from environment file
 # ------------------------------------
 load_dotenv()
-COGNITO_DOMAIN = "https://medappauthentication.auth.us-east-2.amazoncognito.com"
+COGNITO_DOMAIN = "https://medappauthentication.auth.us-east-2.amazoncognito.com/oauth2"
 CLIENT_ID = "5q0flv8aum912c77toku2c4m5g"
 CLIENT_SECRET = "1vnut4nt4ta51pjna2dnussisksgcuget4m7ff6aljhqf6h74mhh"
 APP_URI = "https://vvj3fqwxa9kwjmbn3yw28g.streamlit.app"
