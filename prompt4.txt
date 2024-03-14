@@ -1,0 +1,1 @@
+Provide a clinical assessment based on the past medical history and history of present illness. This assessment should include a number of top clinical differentials in descending order of probability. It should also provide a preliminary assessment of the clinical prognosis for the patient and comment on their current clinical stability.:

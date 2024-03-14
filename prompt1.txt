@@ -1,0 +1,1 @@
+Provide a concise one liner including key elements of patient's past medical history and ending with their chief clinical complaint and the duration of the the chief complaint:
