@@ -1,5 +1,5 @@
 import streamlit as st
-import components.authenticate as authenticate
+import authenticate as authenticate
 import requests
 import zipfile 
 import json
