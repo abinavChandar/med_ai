@@ -252,6 +252,26 @@ def revise(summary_txt, revisions):
     return content_with_padding_06
 
 
+def generate_transcription(query):
+
+    revision = open("example_transcripts.txt", "r")
+    revision_1 = revision.read()  
+
+    completion5 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": revision_1},
+        {"role": "user", "content":  query}
+        ]
+    )
+
+    content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
+
+    return content_with_padding_05
+
+
+
+
 
 
 def save_files(transcription,summary):
@@ -491,8 +511,25 @@ if st.session_state["authenticated"]:
                 st.success("Administrator")
                 st.write(user_email)
             else:
-                st.write(user_email)            
-            
+                st.write(user_email)
+
+
+
+        example_transcripts = open("example_transcripts.txt", "w+")
+
+        example_transcripts.write("Please generate a conversation between the Patient and Physician with extreme detail and make sure it imitates the following examples." + '\n' + '\n')
+
+        sql_role_admin = "SELECT * FROM examples WHERE role = %s"
+        user_role_admin = ["['Admin']"]
+        cursor.execute(sql_role_admin, user_role_admin)
+        admin_examples = cursor.fetchall()
+
+
+        for row in admin_examples: 
+            example_transcripts.write("Example " + str(row[0]) + ":" + '\n' + '\n')
+            example_transcripts.write("Transcription: " + '\n' + '\n' + str(row[1]) + '\n'+ '\n')
+
+        
 
 
 
@@ -722,6 +759,97 @@ if st.session_state["authenticated"]:
                         file_name="final.zip",
                         mime="application/zip"
                     )
+
+
+        
+
+        gen_trans = st.text_area(
+        "Describe a patient encounter to generate conversation",
+        height=100
+        )
+
+
+        gen_transcript = generate_transcription(gen_trans)
+        st.header('Generated Transcription')
+        st.success(gen_transcript)
+
+        if st.button("Generate Clinical Note with this Transcription", type="primary"):
+
+            content_with_padding_01 = content1(gen_transcript)
+            content_with_padding_02 = content2(gen_transcript)
+
+            content_1_2 = content_with_padding_01 + content_with_padding_02
+
+            content_with_padding_03 = content3(content_1_2)
+
+            content_1_2_3 = content_1_2 + content_with_padding_03
+            content_with_padding_04 = content4(content_1_2_3)
+            content_1_2_3_4 = content_1_2_3 + content_with_padding_04
+            content_with_padding_05 = content5(content_1_2_3_4)
+            
+            # step 3 - transcription and summary
+            
+            transcription = gen_transcript
+            
+            content1 = content_with_padding_01  
+            content2 = content_with_padding_02
+            content3 = content_with_padding_03
+            content4 = content_with_padding_04
+            content5 = content_with_padding_05
+
+            summary = summary(content1, content2, content3, content4, content5)
+            f_1 = open("demofile1.txt", "w+")
+            f_2 = open("demofile2.txt", "w+")
+            f_3 = open("demofile3.txt", "w+")
+            f_4 = open("demofile4.txt", "w+")
+            f_5 = open("demofile5.txt", "w+")
+            trans = open("trans.txt", "w+")
+            trans.write(transcription)
+            trans.close()
+            f_1.write(content1)
+            f_1.close()
+            f_2.write(content2)
+            f_2.close()
+            f_3.write(content3)
+            f_3.close()        
+            f_4.write(content4)
+            f_4.close()
+            f_5.write(content5)
+            f_5.close()
+
+
+
+                
+
+
+            st.header('Transcription')
+            st.success(transcription)
+            st.header('One Liner with Chief Complaint:')
+            st.success(content1)
+            st.header('History of Present Illness (HPI)')
+            st.success(content2)
+            st.header('Key Elements')
+            st.success(content3)
+            st.header('Clinical Assessment:')
+            st.success(content4)
+            st.header('Clinical Plan:')
+            st.success(content5)
+            save_files(transcription,summary)
+            with open("final.zip", "rb") as zip_download:
+                btn = st.download_button(
+                    label="Download",
+                    data=zip_download,
+                    file_name="final.zip",
+                    mime="application/zip"
+                )
+
+
+
+
+
+
+
+
 
 
 
