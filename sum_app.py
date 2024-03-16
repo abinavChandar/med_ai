@@ -764,7 +764,7 @@ if st.session_state["authenticated"]:
         
 
         gen_trans = st.text_area(
-        "Describe a patient encounter to generate conversation",
+        "Describe a patient encounter to generate conversation", placeholder= "Example: Generate a convo about a patient who is coming in with abdominal pain concerning for peptic ulcer disease. Add way more detail",
         height=100
         )
 
