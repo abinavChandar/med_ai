@@ -11,7 +11,7 @@ from contextlib import redirect_stdout
 import aiofiles
 
 import pandas as pd
-from streamlit_extras.stoggle import stoggle
+
 import json
 
 import random
