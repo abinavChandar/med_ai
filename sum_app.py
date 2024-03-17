@@ -11,7 +11,7 @@ from contextlib import redirect_stdout
 import aiofiles
 
 import pandas as pd
-
+from streamlit_extras.stoggle import stoggle
 import json
 
 import random
@@ -306,10 +306,14 @@ if st.session_state["authenticated"]:
 
 
 
+    # db = mysql.connector.connect(
+    # host='45.79.3.82',user='dbuser',password='Abinav2016$',database='med_ai', port=3306
+    # )
+
     db = mysql.connector.connect(
-    host='45.79.3.82',user='dbuser',password='Abinav2016$',database='med_ai', port=3306
+    host='localhost',user='abinav',password='Tvzu[sNxjFM34)iQ',database='med_ai'
     )
-     
+         
     # Create a cursor object
     cursor = db.cursor()
     cursor_prompt = db.cursor()
@@ -764,7 +768,7 @@ if st.session_state["authenticated"]:
         
 
         gen_trans = st.text_area(
-        "Describe a patient encounter to generate conversation", placeholder= "Example: Generate a convo about a patient who is coming in with abdominal pain concerning for peptic ulcer disease. Add way more detail",
+        "Describe a patient encounter to generate conversation",
         height=100
         )
 
@@ -890,10 +894,21 @@ if st.session_state["authenticated"]:
 
         st.header('Transcription')
         st.success(trans)
+
+        st.header('Casename')
+
+        txt_0 = st.text_area(
+        "Add a casename to this note",
+        height=100
+        )
+
+
         st.header('One Liner with Chief Complaint:')
         st.success(complaint)
         rev = open("revisions.txt", "r")
         placeholder = rev.read()
+
+
 
         txt_1 = st.text_area(
         "Add Revisions for One Liner with Chief Complaint",
@@ -937,8 +952,8 @@ if st.session_state["authenticated"]:
 
         if st.button("Add Example", type="primary"):
 
-            sql = "INSERT INTO examples (trans, complaint, hist, emergency, assessment, plan, user, role) VALUES (%s, %s, %s, %s, %s,%s, %s, %s)"
-            values = (transcription_1, txt_1, txt_2, txt_3, txt_4, txt_5, user_email, user_role)
+            sql = "INSERT INTO examples (trans, complaint, hist, emergency, assessment, plan, user, role, casename) VALUES (%s, %s, %s, %s, %s, %s,%s, %s, %s)"
+            values = (transcription_1, txt_1, txt_2, txt_3, txt_4, txt_5, user_email, user_role, txt_0)
              
             # Execute the query
             cursor.execute(sql, values)
@@ -976,10 +991,47 @@ if st.session_state["authenticated"]:
           
         # loop through the rows 
         df = pd.DataFrame(result)
+        for row in result:
+
+
+            with st.expander(" CaseID "  + str(row[0]) + ": " + str(row[9])  ):
+
+                st.header('Transcription')
+                st.success(row[1])
+                st.header('One Liner with Chief Complaint:')
+                st.success(row[2])
+
+
+                #txt_1 = st.text_area("Edit One Liner with Chief Complaint",row[2],   height=200)
+                #time.sleep(1)
+
+                st.header('History of Present Illness (HPI)')
+                st.success(row[3])
+
+
+                #txt_2 = st.text_area("Edit Revisions for HPI", row[3],  height=200)
+                #time.sleep(1)
+
+                st.header('Key Elements')
+                st.success(row[4])
+
+                #txt_3 = st.text_area("Edit Revisions for Key Elements", row[4],  height=200)
+                #time.sleep(1)
+                
+
+                st.header('Clinical Assessment')
+                st.success(row[5])
+
+                #txt_4 = st.text_area("Edit Revisions for Assessment", row[5],  height=200)
+                time.sleep(1)
+
+
+                st.header('Clinical Plan')
+                st.success(row[6])
         
 
 
-        st.write(df)
+        #st.write(df)
 
 
         #number = st.number_input("Insert a number", value=None, placeholder="Type a number...")
@@ -994,10 +1046,47 @@ if st.session_state["authenticated"]:
 
             # for row in result_edit:
 
-            edit_open = open("edit.txt", "w")
+            edit_open = open("edit.txt", "w+")
             edit_open.write(edit_num)
             edit_open.close() 
             st.success("Edit this example in the Edit tab")
+
+
+        delete_num = st.text_area("Enter ID of Example",  placeholder= "Please enter the ID of the example you want to delete", height=20)
+        if st.button("Delete Example",  type="primary", key = 50):
+            
+            # edit_id = int(number)
+            # sql = "SELECT * FROM examples WHERE id = %s"
+            # value_id = [(edit_id)]
+            # cursor.execute(sql, value_id)
+            # result_edit = cursor.fetchall() 
+
+            # for row in result_edit:
+
+            # delete_open = open("delete.txt", "w+")
+            # delete_open.write(delete_num)
+            # delete_open.close() 
+            
+
+
+            # # edit_txt = open("edit.txt", "r")
+            # # edit_id = edit_txt.read()
+
+
+            # delete_txt = open("delete.txt", "r")
+            # delete_id = delete_txt.read()
+
+
+
+            delete_id = int(delete_num)
+            sql = "DELETE FROM examples WHERE id = %s"
+            value_id = [(delete_id)]
+            cursor.execute(sql, value_id)
+            #   sresult_edit = cursor.fetchall()
+            db.commit()
+
+            st.success("Successfully Deleted Example")
+        
 
 
 
@@ -1035,6 +1124,14 @@ if st.session_state["authenticated"]:
         result_edit = cursor.fetchall()
 
         for row in result_edit:
+
+            st.header('Casename')
+            st.success(row[9])
+
+            txt_0 = st.text_area(
+            "Edit casename for this note",
+            height=100
+            )
             st.header('Transcription')
             st.success(row[1])
             st.header('One Liner with Chief Complaint:')
@@ -1075,8 +1172,8 @@ if st.session_state["authenticated"]:
 
                 time.sleep(1)
 
-                sql = "UPDATE examples SET trans = %s, complaint = %s, hist = %s, emergency = %s, assessment = %s, plan = %s WHERE id = %s"
-                val = (row[1], txt_1, txt_2, txt_3, txt_4, txt_5, row[0])
+                sql = "UPDATE examples SET trans = %s, complaint = %s, hist = %s, emergency = %s, assessment = %s, plan = %s, casename = %s WHERE id = %s"
+                val = (row[1], txt_1, txt_2, txt_3, txt_4, txt_5, txt_0, row[0])
 
                 cursor.execute(sql, val)
 
