@@ -1059,7 +1059,7 @@ if st.session_state["authenticated"]:
         for row in result:
 
 
-            with st.expander(" CaseID "  + str(row[0]) + ": " + str(row[9])  ):
+            with st.expander("Added by: " + str(row[7]) + " CaseID "  + str(row[0]) + ": " + str(row[9])  ):
 
                 st.header('Transcription')
                 st.success(row[1])
