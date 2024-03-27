@@ -914,9 +914,9 @@ if st.session_state["authenticated"]:
                     st.success("Successfully Added" )
                     st.success(str(row["Case "]))
                     count = count + 1
-                    if count % 5 == 4: # each fifth iteration
-                        time.sleep(30)
-                        st.success("Sleeping for 30 Seconds")
+                    #if count % 5 == 4: # each fifth iteration
+                    time.sleep(30)
+                    st.success("Sleeping for 30 Seconds")
 
 
 
