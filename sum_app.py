@@ -17,7 +17,7 @@ import json
 import random
 import mysql.connector
 import time
-
+import csv
 st.set_page_config(
     page_title="SEHRA",
     page_icon="👋",
