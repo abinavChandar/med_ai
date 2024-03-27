@@ -354,8 +354,8 @@ if st.session_state["authenticated"]:
         
 
 
-    sql_role_admin = "SELECT * FROM examples WHERE role = %s"
-    user_role_admin = ["['Admin']"]
+    sql_role_admin = "SELECT * FROM examples WHERE user = %s"
+    user_role_admin = ["yichi@medsingularity.com"]
     cursor.execute(sql_role_admin, user_role_admin)
     admin_examples = cursor.fetchall()
 
@@ -868,6 +868,7 @@ if st.session_state["authenticated"]:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     
+                    count = 0
 
                     #clinical_note_file = open("50_clinical_note.txt","w+")
 
@@ -912,6 +913,11 @@ if st.session_state["authenticated"]:
                     db.commit()
                     st.success("Successfully Added" )
                     st.success(str(row["Case "]))
+                    count = count + 1
+                    if count % 5 == 4: # each fifth iteration
+                        time.sleep(30)
+                        st.success("Sleeping for 30 Seconds")
+
 
 
                 st.success("Generated 50 examples")
