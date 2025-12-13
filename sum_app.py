@@ -512,7 +512,7 @@ if st.session_state["authenticated"]:
             submit_button = st.form_submit_button(label='Submit')
             if user_role == "['Admin']":
 
-                st.success("Administrator")
+                st.success("Administrators")
                 st.write(user_email)
             else:
                 st.write(user_email)
