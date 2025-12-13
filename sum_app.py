@@ -6,7 +6,6 @@ import json
 from time import sleep
 import os
 import urllib.request
-from openai import OpenAI
 #from openai import OpenAI
 from contextlib import redirect_stdout
 import aiofiles
@@ -42,215 +41,217 @@ st.markdown(
 
 print("hello")
 
-client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
+# client = OpenAI(api_key='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')
 
-def content1_gen(transcript):
 
-    revision = open("prompt_oneline.txt", "r")
-    revision_1 = revision.read()
 
-    completion1 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content": transcript}
-        ]
+# def content1_gen(transcript):
 
-    )
+#     revision = open("prompt_oneline.txt", "r")
+#     revision_1 = revision.read()
 
-    content_with_padding_01 = "\u200B\n\n" + completion1.choices[0].message.content
+#     completion1 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content": transcript}
+#         ]
 
-    return content_with_padding_01
+#     )
 
+#     content_with_padding_01 = "\u200B\n\n" + completion1.choices[0].message.content
 
-def content2_gen(transcript):
+#     return content_with_padding_01
 
-    revision = open("prompt_hist.txt", "r")
-    revision_1 = revision.read()
 
-    completion2 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content":  transcript}
-        ]
-    )
+# def content2_gen(transcript):
 
-    content_with_padding_02 = "\u200B\n\n" + completion2.choices[0].message.content
+#     revision = open("prompt_hist.txt", "r")
+#     revision_1 = revision.read()
 
-    return content_with_padding_02
+#     completion2 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content":  transcript}
+#         ]
+#     )
 
-def content3_gen(transcript):
+#     content_with_padding_02 = "\u200B\n\n" + completion2.choices[0].message.content
 
-    revision = open("prompt_key.txt", "r")
-    revision_1 = revision.read()   
+#     return content_with_padding_02
 
-    completion3 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content": transcript}
-        ]
-    )
+# def content3_gen(transcript):
 
-    content_with_padding_03 = "\u200B\n\n" + completion3.choices[0].message.content
+#     revision = open("prompt_key.txt", "r")
+#     revision_1 = revision.read()   
 
-    return content_with_padding_03
+#     completion3 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content": transcript}
+#         ]
+#     )
 
+#     content_with_padding_03 = "\u200B\n\n" + completion3.choices[0].message.content
 
-def content4_gen(transcript):
+#     return content_with_padding_03
 
-    revision = open("prompt_assessment.txt", "r")
-    revision_1 = revision.read()   
 
-    completion4 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content": transcript}
-        ]
-    )
+# def content4_gen(transcript):
 
-    content_with_padding_04 = "\u200B\n\n" + completion4.choices[0].message.content
+#     revision = open("prompt_assessment.txt", "r")
+#     revision_1 = revision.read()   
 
-    return content_with_padding_04
+#     completion4 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content": transcript}
+#         ]
+#     )
 
+#     content_with_padding_04 = "\u200B\n\n" + completion4.choices[0].message.content
 
-def content5_gen(transcript):
+#     return content_with_padding_04
 
-    revision = open("prompt_plan.txt", "r")
-    revision_1 = revision.read()   
 
-    completion5 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content":  transcript}
-        ]
-    )
+# def content5_gen(transcript):
 
-    content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
+#     revision = open("prompt_plan.txt", "r")
+#     revision_1 = revision.read()   
 
-    return content_with_padding_05
+#     completion5 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content":  transcript}
+#         ]
+#     )
 
+#     content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
 
+#     return content_with_padding_05
 
 
 
-def content1_style(transcript, user_email):
 
-    revision = open(user_email + "_prompt_style_oneline.txt", "r")
-    revision_1 = revision.read()
 
-    completion1 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content": transcript}
-        ]
+# def content1_style(transcript, user_email):
 
-    )
+#     revision = open(user_email + "_prompt_style_oneline.txt", "r")
+#     revision_1 = revision.read()
 
-    content_with_padding_01 = "\u200B\n\n" + completion1.choices[0].message.content
+#     completion1 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content": transcript}
+#         ]
 
-    return content_with_padding_01
+#     )
 
+#     content_with_padding_01 = "\u200B\n\n" + completion1.choices[0].message.content
 
-def content2_style(transcript, user_email):
+#     return content_with_padding_01
 
-    revision = open(user_email + "_prompt_style_hist.txt", "r")
-    revision_1 = revision.read()
 
-    completion2 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content":  transcript}
-        ]
-    )
+# def content2_style(transcript, user_email):
 
-    content_with_padding_02 = "\u200B\n\n" + completion2.choices[0].message.content
+#     revision = open(user_email + "_prompt_style_hist.txt", "r")
+#     revision_1 = revision.read()
 
-    return content_with_padding_02
+#     completion2 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content":  transcript}
+#         ]
+#     )
 
-def content3_style(transcript, user_email):
+#     content_with_padding_02 = "\u200B\n\n" + completion2.choices[0].message.content
 
-    revision = open(user_email + "_prompt_style_key.txt", "r")
-    revision_1 = revision.read()   
+#     return content_with_padding_02
 
-    completion3 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content": transcript}
-        ]
-    )
+# def content3_style(transcript, user_email):
 
-    content_with_padding_03 = "\u200B\n\n" + completion3.choices[0].message.content
+#     revision = open(user_email + "_prompt_style_key.txt", "r")
+#     revision_1 = revision.read()   
 
-    return content_with_padding_03
+#     completion3 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content": transcript}
+#         ]
+#     )
 
+#     content_with_padding_03 = "\u200B\n\n" + completion3.choices[0].message.content
 
-def content4_style(transcript, user_email):
+#     return content_with_padding_03
 
-    revision = open(user_email + "_prompt_style_assessment.txt", "r")
-    revision_1 = revision.read()   
 
-    completion4 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content": transcript}
-        ]
-    )
+# def content4_style(transcript, user_email):
 
-    content_with_padding_04 = "\u200B\n\n" + completion4.choices[0].message.content
+#     revision = open(user_email + "_prompt_style_assessment.txt", "r")
+#     revision_1 = revision.read()   
 
-    return content_with_padding_04
+#     completion4 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content": transcript}
+#         ]
+#     )
 
+#     content_with_padding_04 = "\u200B\n\n" + completion4.choices[0].message.content
 
-def content5_style(transcript, user_email):
+#     return content_with_padding_04
 
-    revision = open(user_email + "_prompt_style_plan.txt", "r")
-    revision_1 = revision.read()   
 
-    completion5 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revision_1},
-        {"role": "user", "content":  transcript}
-        ]
-    )
+# def content5_style(transcript, user_email):
 
-    content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
+#     revision = open(user_email + "_prompt_style_plan.txt", "r")
+#     revision_1 = revision.read()   
 
-    return content_with_padding_05
+#     completion5 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revision_1},
+#         {"role": "user", "content":  transcript}
+#         ]
+#     )
 
+#     content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
 
+#     return content_with_padding_05
 
 
-def summary(content1, content2, content3, content4, content5):
 
-    summary = content1 + content2 + content3 + content4 + content5
 
-    return summary
+# def summary(content1, content2, content3, content4, content5):
 
+#     summary = content1 + content2 + content3 + content4 + content5
 
-def revise(summary_txt, revisions):
+#     return summary
 
-    completion6 = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-        {"role": "system", "content": revisions},
-        {"role": "user", "content":  summary_txt}
-        ]
-    )
 
-    content_with_padding_06 = "\u200B\n\n" + completion6.choices[0].message.content
+# def revise(summary_txt, revisions):
 
-    return content_with_padding_06
+#     completion6 = client.chat.completions.create(
+#         model="gpt-3.5-turbo",
+#         messages=[
+#         {"role": "system", "content": revisions},
+#         {"role": "user", "content":  summary_txt}
+#         ]
+#     )
+
+#     content_with_padding_06 = "\u200B\n\n" + completion6.choices[0].message.content
+
+#     return content_with_padding_06
 
 
 def generate_transcription(query):
