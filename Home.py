@@ -287,7 +287,7 @@ if st.session_state["authenticated"]:
 
 
     db = mysql.connector.connect(
-    host='localhost',user='abinav',password='Tvzu[sNxjFM34)iQ',database='med_ai'
+    host='52.15.237.190',user='sehra_user',password='StrongPassword123!',database='med_ai', port=3306
     )
      
     # Create a cursor object

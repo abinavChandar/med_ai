@@ -307,7 +307,7 @@ if st.session_state["authenticated"]:
 
 
     db = mysql.connector.connect(
-    host='45.79.3.82',user='dbuser',password='Abinav2016$',database='med_ai', port=3306
+    host='52.15.237.190',user='sehra_user',password='StrongPassword123!',database='med_ai', port=3306
     )
 
     # db = mysql.connector.connect(
