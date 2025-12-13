@@ -41,6 +41,7 @@ st.markdown(
 
 print("hello")
 
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 # client = OpenAI(api_key='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')
