@@ -781,150 +781,150 @@ if st.session_state["authenticated"]:
         st.header('Generated Transcription')
         st.success(gen_transcript)
 
-        # if st.button("Generate Clinical Note with this Transcription", type="primary"):
+        if st.button("Generate Clinical Note with this Transcription", type="primary"):
 
-        #     content_with_padding_01 = content1_gen(gen_transcript)
-        #     content_with_padding_02 = content2_gen(gen_transcript)
+            content_with_padding_01 = content1_gen(gen_transcript)
+            content_with_padding_02 = content2_gen(gen_transcript)
 
-        #     content_1_2 = content_with_padding_01 + content_with_padding_02
+            content_1_2 = content_with_padding_01 + content_with_padding_02
 
-        #     content_with_padding_03 = content3_gen(content_1_2)
+            content_with_padding_03 = content3_gen(content_1_2)
 
-        #     content_1_2_3 = content_1_2 + content_with_padding_03
-        #     content_with_padding_04 = content4_gen(content_1_2_3)
-        #     content_1_2_3_4 = content_1_2_3 + content_with_padding_04
-        #     content_with_padding_05 = content5_gen(content_1_2_3_4)
+            content_1_2_3 = content_1_2 + content_with_padding_03
+            content_with_padding_04 = content4_gen(content_1_2_3)
+            content_1_2_3_4 = content_1_2_3 + content_with_padding_04
+            content_with_padding_05 = content5_gen(content_1_2_3_4)
             
-        #     # step 3 - transcription and summary
+            # step 3 - transcription and summary
             
-        #     transcription = gen_transcript
+            transcription = gen_transcript
             
-        #     content1 = content_with_padding_01  
-        #     content2 = content_with_padding_02
-        #     content3 = content_with_padding_03
-        #     content4 = content_with_padding_04
-        #     content5 = content_with_padding_05
+            content1 = content_with_padding_01  
+            content2 = content_with_padding_02
+            content3 = content_with_padding_03
+            content4 = content_with_padding_04
+            content5 = content_with_padding_05
 
-        #     summary = summary(content1, content2, content3, content4, content5)
-        #     f_1 = open("demofile1.txt", "w+")
-        #     f_2 = open("demofile2.txt", "w+")
-        #     f_3 = open("demofile3.txt", "w+")
-        #     f_4 = open("demofile4.txt", "w+")
-        #     f_5 = open("demofile5.txt", "w+")
-        #     trans = open("trans.txt", "w+")
-        #     trans.write(transcription)
-        #     trans.close()
-        #     f_1.write(content1)
-        #     f_1.close()
-        #     f_2.write(content2)
-        #     f_2.close()
-        #     f_3.write(content3)
-        #     f_3.close()        
-        #     f_4.write(content4)
-        #     f_4.close()
-        #     f_5.write(content5)
-        #     f_5.close()
+            summary = summary(content1, content2, content3, content4, content5)
+            f_1 = open("demofile1.txt", "w+")
+            f_2 = open("demofile2.txt", "w+")
+            f_3 = open("demofile3.txt", "w+")
+            f_4 = open("demofile4.txt", "w+")
+            f_5 = open("demofile5.txt", "w+")
+            trans = open("trans.txt", "w+")
+            trans.write(transcription)
+            trans.close()
+            f_1.write(content1)
+            f_1.close()
+            f_2.write(content2)
+            f_2.close()
+            f_3.write(content3)
+            f_3.close()        
+            f_4.write(content4)
+            f_4.close()
+            f_5.write(content5)
+            f_5.close()
 
 
 
                 
 
 
-        #     st.header('Transcription')
-        #     st.success(transcription)
-        #     st.header('One Liner with Chief Complaint:')
-        #     st.success(content1)
-        #     st.header('History of Present Illness (HPI)')
-        #     st.success(content2)
-        #     st.header('Key Elements')
-        #     st.success(content3)
-        #     st.header('Clinical Assessment:')
-        #     st.success(content4)
-        #     st.header('Clinical Plan:')
-        #     st.success(content5)
-        #     save_files(transcription,summary)
-        #     with open("final.zip", "rb") as zip_download:
-        #         btn = st.download_button(
-        #             label="Download",
-        #             data=zip_download,
-        #             file_name="final.zip",
-        #             mime="application/zip"
-        #         )
+            st.header('Transcription')
+            st.success(transcription)
+            st.header('One Liner with Chief Complaint:')
+            st.success(content1)
+            st.header('History of Present Illness (HPI)')
+            st.success(content2)
+            st.header('Key Elements')
+            st.success(content3)
+            st.header('Clinical Assessment:')
+            st.success(content4)
+            st.header('Clinical Plan:')
+            st.success(content5)
+            save_files(transcription,summary)
+            with open("final.zip", "rb") as zip_download:
+                btn = st.download_button(
+                    label="Download",
+                    data=zip_download,
+                    file_name="final.zip",
+                    mime="application/zip"
+                )
 
 
 
-        # if st.button("Generate 50 Clinical Notes", type="primary"):
+        if st.button("Generate 50 Clinical Notes", type="primary"):
 
 
-        #     # with open('Common Clinical Cases Checklist.xlsx - Sheet1.csv', newline='') as csvfile:
-        #     #     reader = csv.DictReader(csvfile)
-        #     #     for row in reader:
+            # with open('Common Clinical Cases Checklist.xlsx - Sheet1.csv', newline='') as csvfile:
+            #     reader = csv.DictReader(csvfile)
+            #     for row in reader:
                     
 
-        #     #         clinical_note_file = open(str(row["Case "]) + "_clinical_note.txt","w+")
+            #         clinical_note_file = open(str(row["Case "]) + "_clinical_note.txt","w+")
 
 
-        #     #clinical_note_file = open("50_clinical_note.txt","w+")
+            #clinical_note_file = open("50_clinical_note.txt","w+")
 
 
 
-        #     with open('data.csv', newline='') as csvfile:
-        #         reader = csv.DictReader(csvfile)
-        #         for row in reader:
+            with open('data.csv', newline='') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
                     
-        #             count = 0
+                    count = 0
 
-        #             #clinical_note_file = open("50_clinical_note.txt","w+")
+                    #clinical_note_file = open("50_clinical_note.txt","w+")
 
-        #             gen_query = "The Patient is experiencing  " + str(row["Case "]) +  "  . Please generate a very detailed conversation between the Patient and Doctor. Add an extreme amount of detail to the conversation."
+                    gen_query = "The Patient is experiencing  " + str(row["Case "]) +  "  . Please generate a very detailed conversation between the Patient and Doctor. Add an extreme amount of detail to the conversation."
 
-        #             gen_transcript2 = generate_transcription(gen_query)
+                    gen_transcript2 = generate_transcription(gen_query)
 
 
-        #             content_with_padding_01 = content1_gen(gen_transcript2)
-        #             content_with_padding_02 = content2_gen(gen_transcript2)
+                    content_with_padding_01 = content1_gen(gen_transcript2)
+                    content_with_padding_02 = content2_gen(gen_transcript2)
 
-        #             content_1_2 = content_with_padding_01 + content_with_padding_02
+                    content_1_2 = content_with_padding_01 + content_with_padding_02
 
-        #             content_with_padding_03 = content3_gen(content_1_2)
+                    content_with_padding_03 = content3_gen(content_1_2)
 
-        #             content_1_2_3 = content_1_2 + content_with_padding_03
-        #             content_with_padding_04 = content4_gen(content_1_2_3)
-        #             content_1_2_3_4 = content_1_2_3 + content_with_padding_04
-        #             content_with_padding_05 = content5_gen(content_1_2_3_4)
+                    content_1_2_3 = content_1_2 + content_with_padding_03
+                    content_with_padding_04 = content4_gen(content_1_2_3)
+                    content_1_2_3_4 = content_1_2_3 + content_with_padding_04
+                    content_with_padding_05 = content5_gen(content_1_2_3_4)
                     
-        #             # step 3 - transcription and summary
+                    # step 3 - transcription and summary
                     
-        #             transcription = gen_transcript2
+                    transcription = gen_transcript2
                     
-        #             content1 = content_with_padding_01  
-        #             content2 = content_with_padding_02
-        #             content3 = content_with_padding_03
-        #             content4 = content_with_padding_04
-        #             content5 = content_with_padding_05
-        #             case_name = str(row["Case "])
+                    content1 = content_with_padding_01  
+                    content2 = content_with_padding_02
+                    content3 = content_with_padding_03
+                    content4 = content_with_padding_04
+                    content5 = content_with_padding_05
+                    case_name = str(row["Case "])
 
 
 
 
-        #             sql = "INSERT INTO examples (trans, complaint, hist, emergency, assessment, plan, user, role, casename) VALUES (%s, %s, %s, %s, %s, %s,%s, %s, %s)"
-        #             values = (transcription, content1, content2, content3, content4, content5, user_email, user_role, case_name)
+                    sql = "INSERT INTO examples (trans, complaint, hist, emergency, assessment, plan, user, role, casename) VALUES (%s, %s, %s, %s, %s, %s,%s, %s, %s)"
+                    values = (transcription, content1, content2, content3, content4, content5, user_email, user_role, case_name)
                      
-        #             # Execute the query
-        #             cursor.execute(sql, values)
+                    # Execute the query
+                    cursor.execute(sql, values)
                      
-        #             # Commit the changes
-        #             db.commit()
-        #             st.success("Successfully Added" )
-        #             st.success(str(row["Case "]))
-        #             count = count + 1
-        #             #if count % 5 == 4: # each fifth iteration
-        #             time.sleep(30)
-        #             st.success("Sleeping for 30 Seconds")
+                    # Commit the changes
+                    db.commit()
+                    st.success("Successfully Added" )
+                    st.success(str(row["Case "]))
+                    count = count + 1
+                    #if count % 5 == 4: # each fifth iteration
+                    time.sleep(30)
+                    st.success("Sleeping for 30 Seconds")
 
 
 
-        #         st.success("Generated 50 examples")
+                st.success("Generated 50 examples")
 
 
 
