@@ -6,7 +6,7 @@ import json
 from time import sleep
 import os
 import urllib.request
-#from openai import OpenAI
+from openai import OpenAI
 from contextlib import redirect_stdout
 import aiofiles
 
