@@ -13,6 +13,7 @@ import aiofiles
 import pandas as pd
 
 import json
+import io
 
 import random
 import mysql.connector
@@ -498,15 +499,72 @@ if st.session_state["authenticated"]:
 
 
 
-        if submit_button:
+    if submit_button:
+        if uploaded_file is None:
+            st.error("Please upload an audio file first.")
+            st.stop()
 
-            #audio_file = bytes_data
-            #audio_file = open(audio_file, "rb")
-            transcript = client.audio.transcriptions.create(
-            model="whisper-1", 
-            file=uploaded_file, 
-            response_format="text"
-            )
+        # Basic debug info
+        st.write("Uploaded:", uploaded_file.name, uploaded_file.type, uploaded_file.size)
+
+        # Read bytes from Streamlit uploader
+        audio_bytes = uploaded_file.read()
+        if not audio_bytes:
+            st.error("Uploaded file is empty (0 bytes). Try uploading again.")
+            st.stop()
+
+        # Re-wrap as a file-like object with a filename
+        audio_file = io.BytesIO(audio_bytes)
+        audio_file.name = uploaded_file.name  # important: Whisper uses filename extension
+
+        try:
+            with st.spinner("Transcribing audio (Whisper)..."):
+                transcript = client.audio.transcriptions.create(
+                    model="whisper-1",
+                    file=audio_file,
+                    response_format="text",
+                )
+            st.success("Transcription complete.")
+            st.text_area("Transcript (raw)", transcript, height=200)
+
+        except Exception as e:
+            st.exception(e)
+            st.stop()
+
+        # Now do the LLM steps with progress + error handling
+        try:
+            with st.spinner("Generating note sections..."):
+                content_with_padding_01 = content1(transcript)
+                content_with_padding_02 = content2(transcript)
+                content_1_2 = content_with_padding_01 + content_with_padding_02
+                content_with_padding_03 = content3(content_1_2)
+                content_1_2_3 = content_1_2 + content_with_padding_03
+                content_with_padding_04 = content4(content_1_2_3)
+                content_1_2_3_4 = content_1_2_3 + content_with_padding_04
+                content_with_padding_05 = content5(content_1_2_3_4)
+
+        except Exception as e:
+            st.exception(e)
+            st.stop()
+
+        # Render results (so user sees something)
+        st.header("Transcription")
+        st.success(transcript)
+
+        st.header("One Liner with Chief Complaint:")
+        st.success(content_with_padding_01)
+
+        st.header("History of Present Illness (HPI)")
+        st.success(content_with_padding_02)
+
+        st.header("Key Elements")
+        st.success(content_with_padding_03)
+
+        st.header("Clinical Assessment:")
+        st.success(content_with_padding_04)
+
+        st.header("Clinical Plan:")
+        st.success(content_with_padding_05)
 
 
 
