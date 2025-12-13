@@ -275,19 +275,19 @@ def generate_transcription(query):
 
 
 
-# def save_files(transcription,summary):
+def save_files(transcription,summary):
 
-#     with open('transcript.txt', 'w') as f:
-#         f.write(transcription)
-#         f.close()
-#     with open('summary.txt', 'w') as f:
-#         f.write(summary)
-#         f.close()    
-#     list_files = ['transcript.txt','summary.txt']
-#     with zipfile.ZipFile('final.zip', 'w') as zipF:
-#       for file in list_files:
-#          zipF.write(file, compress_type=zipfile.ZIP_DEFLATED)
-#       zipF.close()
+    with open('transcript.txt', 'w') as f:
+        f.write(transcription)
+        f.close()
+    with open('summary.txt', 'w') as f:
+        f.write(summary)
+        f.close()    
+    list_files = ['transcript.txt','summary.txt']
+    with zipfile.ZipFile('final.zip', 'w') as zipF:
+      for file in list_files:
+         zipF.write(file, compress_type=zipfile.ZIP_DEFLATED)
+      zipF.close()
 
 
 
