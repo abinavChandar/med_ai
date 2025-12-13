@@ -42,7 +42,7 @@ st.markdown(
 
 print("hello")
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='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')
 
 
 
