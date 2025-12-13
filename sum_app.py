@@ -252,22 +252,22 @@ print("hello")
 #     return content_with_padding_06
 
 
-# def generate_transcription(query):
+def generate_transcription(query):
 
-#     revision = open("example_transcripts.txt", "r")
-#     revision_1 = revision.read()  
+    revision = open("example_transcripts.txt", "r")
+    revision_1 = revision.read()  
 
-#     completion5 = client.chat.completions.create(
-#         model="gpt-3.5-turbo",
-#         messages=[
-#         {"role": "system", "content": revision_1},
-#         {"role": "user", "content":  query}
-#         ]
-#     )
+    completion5 = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": revision_1},
+        {"role": "user", "content":  query}
+        ]
+    )
 
-#     content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
+    content_with_padding_05 = "\u200B\n\n" + completion5.choices[0].message.content
 
-#     return content_with_padding_05
+    return content_with_padding_05
 
 
 
