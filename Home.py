@@ -42,7 +42,7 @@ st.markdown(
 
 print("hello")
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 
